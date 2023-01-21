@@ -68,6 +68,11 @@ func Configure(p *config.Provider) {
 				Type:      "github.com/upbound/provider-aws/apis/iam/v1beta1.Role",
 				Extractor: common.PathARNExtractor,
 			},
+			"load_balancer.target_group_arn": config.Reference{
+				Type:              "github.com/upbound/provider-aws/apis/ec2/v1beta1.TargetGroup",
+				RefFieldName:      "TargetGroupRefs",
+				SelectorFieldName: "TargetGroupSelector",
+			},
 			"network_configuration.subnets": config.Reference{
 				Type:              "github.com/upbound/provider-aws/apis/ec2/v1beta1.Subnet",
 				RefFieldName:      "SubnetRefs",
